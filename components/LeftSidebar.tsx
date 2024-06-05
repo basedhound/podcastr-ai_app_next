@@ -18,7 +18,7 @@ const LeftSidebar = () => {
   // const { audio } = useAudio();
 
   return (
-    <section className="left-sidebar">
+    <section className="left_sidebar">
       <nav className="flex flex-col gap-6">
         <Link
           href="/"
