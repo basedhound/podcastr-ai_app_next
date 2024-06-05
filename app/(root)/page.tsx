@@ -9,7 +9,7 @@ import { podcastData } from "@/constants";
 
 //!
 const Home = () => {
-  const tasks = useQuery(api.tasks.get);
+  // const tasks = useQuery(api.tasks.get);
   // const trendingPodcasts = useQuery(api.podcasts.getTrendingPodcasts);
   // if(!trendingPodcasts) return <LoaderSpinner />
 
@@ -19,7 +19,7 @@ const Home = () => {
         <h1 className="text-20 font-bold text-white-1">Trending Podcasts</h1>
 
         <div className="flex min-h-screen flex-col items-center justify-between p-24 text-white-1">
-          {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
+          {/* {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)} */}
         </div>
 
         <div className="podcast_grid">
