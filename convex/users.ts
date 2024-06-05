@@ -1,4 +1,4 @@
-// Similar to Next.js server actions, but for Convex
+// Similar to Next.js server actions, but for Convex 
 import { ConvexError, v } from "convex/values";
 import { internalMutation, query } from "./_generated/server";
 
