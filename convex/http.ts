@@ -1,6 +1,8 @@
 // Make Convex and Clerk work together
 // https://docs.convex.dev/auth/clerk (choose for clerk template)
 // https://www.convex.dev/templates/clerk 
+// https://docs.convex.dev/functions/http-actions 
+// https://dashboard.clerk.com -> Webhooks (.convex.site/clerk)
 
 import type { WebhookEvent } from "@clerk/nextjs/server";
 import { httpRouter } from "convex/server";
