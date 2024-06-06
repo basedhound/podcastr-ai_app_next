@@ -13,40 +13,48 @@ import { Button } from "@/components/ui/button";
 //
 import { GeneratePodcastProps } from "@/types";
 
-//!
+//! Main Hook
 const useGeneratePodcast = ({
-  setAudio, voiceType, voicePrompt, setAudioStorageId
-}: GeneratePodcastProps)=> {
-  const { toast } = useToast() // Just a success Toast
-
-  const [isGenerating, setIsGenerating] = useState(false); // Generating...
-  const generateUploadUrl = useMutation(api.files.generateUploadUrl); // Get upload URL
-  const { startUpload } = useUploadFiles(generateUploadUrl) // Upload to Convex using Uploadstuff
-
-  const getPodcastAudio = useAction(api.openai.generateAudioAction)
-  // const getAudioUrl = useMutation(api.podcasts.getUrl);
+  setAudio,
+  voiceType,
+  voicePrompt,
+  setAudioStorageId,
+}: GeneratePodcastProps) => {
+  // Generating...
+  const [isGenerating, setIsGenerating] = useState(false);
+  // Get UPLOAD URL
+  const generateUploadUrl = useMutation(api.files.generateUploadUrl);
+  // Upload to Convex using Uploadstuff
+  const { startUpload } = useUploadFiles(generateUploadUrl);
+  // Use OpenAI to generate AUDIO
+  const getPodcastAudio = useAction(api.openai.generateAudioAction);
+  // Get AUDIO URL
+  const getAudioUrl = useMutation(api.podcasts.getUrl);
+  // Success Toast
+  const { toast } = useToast();
 
   //!
   const generatePodcast = async () => {
     setIsGenerating(true);
-    setAudio('');
+    setAudio("");
 
-    if(!voicePrompt) {
+    // Error Toast
+    if (!voicePrompt) {
       toast({
         title: "Please provide a voiceType to generate a podcast",
-      })
+      });
       return setIsGenerating(false);
     }
 
     try {
       const response = await getPodcastAudio({
         voice: voiceType,
-        input: voicePrompt
-      })
+        input: voicePrompt,
+      });
       // Create AUDIO file
-      const blob = new Blob([response], { type: 'audio/mpeg' });
+      const blob = new Blob([response], { type: "audio/mpeg" });
       const fileName = `podcast-${uuidv4()}.mp3`;
-      const file = new File([blob], fileName, { type: 'audio/mpeg' });
+      const file = new File([blob], fileName, { type: "audio/mpeg" });
       // Upload AUDIO file to Convex storage
       const uploaded = await startUpload([file]);
       // Get AUDIO storage ID
@@ -54,27 +62,27 @@ const useGeneratePodcast = ({
       setAudioStorageId(storageId);
       // Get AUDIO URL
       const audioUrl = await getAudioUrl({ storageId });
+      // Set AUDIO URL state
       setAudio(audioUrl!);
       // Success
       setIsGenerating(false);
       toast({
         title: "Podcast generated successfully",
-      })
+      });
     } catch (error) {
-      console.log('Error generating podcast', error)
+      console.log("Error generating podcast", error);
       toast({
         title: "Error creating a podcast",
-        variant: 'destructive',
-      })
+        variant: "destructive",
+      });
       setIsGenerating(false);
     }
-    
-  }
+  };
 
-  return { isGenerating, generatePodcast }
-}
+  return { isGenerating, generatePodcast };
+};
 
-//!
+//! Function to generate Podcast
 const GeneratePodcast = (props: GeneratePodcastProps) => {
   // Generating new audio prompt
   const { isGenerating, generatePodcast } = useGeneratePodcast(props);
@@ -96,7 +104,7 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
       <div className="mt-5 w-full max-w-[200px]">
         <Button
           type="submit"
-          className="text-16 bg-orange-1 py-4 font-bold text-white-1" /* onClick={generatePodcast} */
+          className="text-16 bg-orange-1 py-4 font-bold text-white-1" onClick={generatePodcast}
         >
           {isGenerating ? (
             <>

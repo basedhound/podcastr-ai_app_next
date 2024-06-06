@@ -49,28 +49,24 @@ const voiceCategories = ["alloy", "shimmer", "nova", "echo", "fable", "onyx"];
 const CreatePodcast = () => {
   // Router
   const router = useRouter();
-
   // Thumbnail states
   const [imageUrl, setImageUrl] = useState("");
   const [imagePrompt, setImagePrompt] = useState("");
   const [imageStorageId, setImageStorageId] = useState<Id<"_storage"> | null>(
     null
   );
-
   // Audio states
   const [audioUrl, setAudioUrl] = useState("");
   const [audioDuration, setAudioDuration] = useState(0);
   const [audioStorageId, setAudioStorageId] = useState<Id<"_storage"> | null>(
     null
   );
-
   // Voice type
   const [voicePrompt, setVoicePrompt] = useState("");
   const [voiceType, setVoiceType] = useState<string | null>(null);
-
   // Submit/Create/Publish
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // const createPodcast = useMutation(api.podcasts.createPodcast)
+  const createPodcast = useMutation(api.podcasts.createPodcast);
   const { toast } = useToast();
 
   // Define form
@@ -130,7 +126,6 @@ const CreatePodcast = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="mt-12 flex w-full flex-col">
           <div className="flex flex-col gap-[30px] border-b border-black-5 pb-10">
-
             {/* TITLE */}
             <FormField
               control={form.control}
@@ -221,13 +216,13 @@ const CreatePodcast = () => {
               setAudioDuration={setAudioDuration}
             />
             {/* GENERATE THUMBNAIL */}
-            <GenerateThumbnail
+            {/*             <GenerateThumbnail
               setImage={setImageUrl}
               setImageStorageId={setImageStorageId}
               image={imageUrl}
               imagePrompt={imagePrompt}
               setImagePrompt={setImagePrompt}
-            />
+            /> */}
 
             {/* SUBMIT BUTTON */}
             <div className="mt-10 w-full">
