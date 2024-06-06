@@ -67,6 +67,7 @@ Follow these steps to set up the project locally on your machine.
 - https://dashboard.clerk.com
 - https://uploadthing.com/dashboard
 - https://dashboard.stripe.com
+- https://platform.openai.com
 
 <br/>**Prerequisites**
 
@@ -110,6 +111,7 @@ Replace the placeholder values with your actual Convex & Clerk credentials. You 
 
 ```bash
 npm run dev
+npx convex dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
