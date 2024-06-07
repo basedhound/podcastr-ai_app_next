@@ -50,20 +50,21 @@ const CreatePodcast = () => {
   // Router
   const router = useRouter();
   // Thumbnail states
-  const [imageUrl, setImageUrl] = useState("");
   const [imagePrompt, setImagePrompt] = useState("");
   const [imageStorageId, setImageStorageId] = useState<Id<"_storage"> | null>(
     null
   );
+  const [imageUrl, setImageUrl] = useState("");
   // Audio states
   const [audioUrl, setAudioUrl] = useState("");
-  const [audioDuration, setAudioDuration] = useState(0);
   const [audioStorageId, setAudioStorageId] = useState<Id<"_storage"> | null>(
     null
   );
+  const [audioDuration, setAudioDuration] = useState(0);
   // Voice type
-  const [voicePrompt, setVoicePrompt] = useState("");
   const [voiceType, setVoiceType] = useState<string | null>(null);
+  const [voicePrompt, setVoicePrompt] = useState("");
+
   // Submit/Create/Publish
   const [isSubmitting, setIsSubmitting] = useState(false);
   const createPodcast = useMutation(api.podcasts.createPodcast);
@@ -90,6 +91,7 @@ const CreatePodcast = () => {
         throw new Error("Please generate audio and image");
       }
 
+      // Create a new podcast
       const podcast = await createPodcast({
         podcastTitle: data.podcastTitle,
         podcastDescription: data.podcastDescription,
@@ -175,7 +177,7 @@ const CreatePodcast = () => {
                 {voiceType && (
                   <audio
                     src={`/${voiceType}.mp3`}
-                    autoPlay
+                    autoPlay                    
                     className="hidden"
                   />
                 )}
