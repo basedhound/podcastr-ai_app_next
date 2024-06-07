@@ -15,6 +15,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'different-magpie-170.convex.cloud'
+      },
+      {
+        protocol: 'https',
         hostname: 'img.clerk.com'
       },
     ]
