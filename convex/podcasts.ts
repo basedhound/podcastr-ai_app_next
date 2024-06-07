@@ -17,6 +17,7 @@ export const createPodcast = mutation({
     audioDuration: v.number(),
   },
   handler: async (ctx, args) => {
+    // Who's creating the podcast ?
     const identity = await ctx.auth.getUserIdentity();
 
     if (!identity) {
