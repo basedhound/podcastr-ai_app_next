@@ -22,6 +22,7 @@ import { GenerateThumbnailProps } from "@/types";
  * and the loading status of the image.
  */
 
+//!
 const GenerateThumbnail = ({
   setImage,
   setImageStorageId,
@@ -33,17 +34,20 @@ const GenerateThumbnail = ({
   const [isAiThumbnail, setIsAiThumbnail] = useState(false);
   // Is the tumbnail being generated ?
   const [isImageLoading, setIsImageLoading] = useState(false);
-  // Ref to display image file input 
+  // Ref to display image file 
   const imageRef = useRef<HTMLInputElement>(null);
-  //
+  // Generates the URL for uploading the image file
   const generateUploadUrl = useMutation(api.files.generateUploadUrl);
-  const { startUpload } = useUploadFiles(generateUploadUrl);
+  // Starts the upload process
+  const { startUpload } = useUploadFiles(generateUploadUrl);  
+  // Returns the URL of the storage file we are accessing by ID
   const getImageUrl = useMutation(api.podcasts.getUrl);
+  // Generate thumbnail image using OpenAI API
   const handleGenerateThumbnail = useAction(api.openai.generateThumbnailAction);
   // Success message
   const { toast } = useToast();
 
-  // Upload to Convex using Uploadstuff
+  // Handle generated/uploaded image -> Upload it to storage -> get file URL
   const handleImage = async (blob: Blob, fileName: string) => {
     setIsImageLoading(true);
     setImage("");
@@ -64,7 +68,7 @@ const GenerateThumbnail = ({
     }
   };
 
-  // Generate Image
+  // If generating image using prompt -> OpenAI
   const generateImage = async () => {
     try {
       const response = await handleGenerateThumbnail({ prompt: imagePrompt });
@@ -76,7 +80,7 @@ const GenerateThumbnail = ({
     }
   };
 
-  // Upload Image
+  // If uploading image using file input
   const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     try {
