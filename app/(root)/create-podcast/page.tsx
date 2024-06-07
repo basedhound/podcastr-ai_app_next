@@ -138,7 +138,7 @@ const CreatePodcast = () => {
                   <FormControl>
                     <Input
                       className="input-class focus-visible:ring-offset-orange-1"
-                      placeholder="JSM Pro Podcast"
+                      placeholder="Enter podcast title"
                       {...field}
                     />
                   </FormControl>
@@ -216,13 +216,13 @@ const CreatePodcast = () => {
               setAudioDuration={setAudioDuration}
             />
             {/* GENERATE THUMBNAIL */}
-            {/*             <GenerateThumbnail
+            <GenerateThumbnail
               setImage={setImageUrl}
               setImageStorageId={setImageStorageId}
               image={imageUrl}
               imagePrompt={imagePrompt}
               setImagePrompt={setImagePrompt}
-            /> */}
+            />
 
             {/* SUBMIT BUTTON */}
             <div className="mt-10 w-full">
