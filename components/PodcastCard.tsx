@@ -11,7 +11,9 @@ const PodcastCard = ({
   description,
   podcastId,
 }: PodcastCardProps) => {
+  // Router
   const router = useRouter();
+  
   const handleViews = () => {
     router.push(`/podcasts/${podcastId}`, {
       scroll: true,
