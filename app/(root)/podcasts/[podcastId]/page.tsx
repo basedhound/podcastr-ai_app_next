@@ -18,12 +18,17 @@ const PodcastDetails = ({
 }: {
   params: { podcastId: Id<"podcasts"> };
 }) => {
+  // User data
   const { user } = useUser();
+  // Fetch podcast data
   const podcast = useQuery(api.podcasts.getPodcastById, { podcastId });
+  // Fetch similar podcasts
   const similarPodcasts = useQuery(api.podcasts.getPodcastByVoiceType, {
     podcastId,
   });
+  // Check if the user is the owner of the podcast
   const isOwner = user?.id === podcast?.authorId;
+  // If there's no podcast or similar podcasts, show a loading spinner
   if (!similarPodcasts || !podcast) return <LoaderSpinner />;
 
   return (
