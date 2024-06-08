@@ -97,12 +97,19 @@ npm install
 Create a new file named `.env` in the root of your project and add the following content:
 
 ```env
+# Convex
 CONVEX_DEPLOYMENT=
 NEXT_PUBLIC_CONVEX_URL=
+
+# Clerk
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
+CLERK_WEBHOOK_SECRET=
 NEXT_PUBLIC_CLERK_SIGN_IN_URL='/sign-in'
 NEXT_PUBLIC_CLERK_SIGN_UP_URL='/sign-up'
+
+# OpenAI
+OPENAI_API_KEY=
 ```
 
 Replace the placeholder values with your actual Convex & Clerk credentials. You can obtain these credentials by signing up on the [Convex](https://www.convex.dev/) and [Clerk](https://clerk.com/) websites.
