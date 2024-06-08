@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 //
 import "./globals.css";
-import ConvexClerkProvider from "../providers/ConvexClerkProvider";
+import ConvexClerkProvider from "@/providers/ConvexClerkProvider";
+import AudioProvider from "@/providers/AudioProvider";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -21,10 +22,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en"><AudioProvider>
       <body className={`${manrope.className}`}>
         <ConvexClerkProvider>{children}</ConvexClerkProvider>
-      </body>
+      </body></AudioProvider>
     </html>
   );
 }
