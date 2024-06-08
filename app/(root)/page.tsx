@@ -5,13 +5,13 @@ import { api } from "@/convex/_generated/api";
 //
 import PodcastCard from "@/components/PodcastCard";
 import LoaderSpinner from "@/components/LoaderSpinner";
-// import { podcastData } from "@/constants"; // For example
+// import { podcastData } from "@/constants"; // For draft
 
 //!
 const Home = () => {
+  // const tasks = useQuery(api.tasks.get); // For draft
   const trendingPodcasts = useQuery(api.podcasts.getTrendingPodcasts);
-  // const tasks = useQuery(api.tasks.get);
-  // if(!trendingPodcasts) return <LoaderSpinner />
+  if(!trendingPodcasts) return <LoaderSpinner />
 
   return (
     <div className="mt-9 flex flex-col gap-9 md:overflow-hidden">
