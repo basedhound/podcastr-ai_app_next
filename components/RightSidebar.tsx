@@ -11,7 +11,7 @@ import Header from "./Header";
 import Carousel from "./Carousel";
 import LoaderSpinner from "./LoaderSpinner";
 import { cn } from "@/lib/utils";
-// import { useAudio } from '@/providers/AudioProvider';
+import { useAudio } from '@/providers/AudioProvider';
 
 //!
 const RightSidebar = () => {
@@ -21,10 +21,12 @@ const RightSidebar = () => {
   // Fetch top podcasters
   const topPodcasters = useQuery(api.users.getTopUserByPodcastCount);
 
-  // const { audio } = useAudio();
+  const { audio } = useAudio();
 
   return (
-    <section className="right_sidebar">
+    <section className={cn('right_sidebar h-[calc(100vh-5px)]', {
+      'h-[calc(100vh-100px)]': audio?.audioUrl
+    })}>
       <SignedIn>
         <Link href={`/profile/${user?.id}`} className="flex gap-3 pb-12">
           <UserButton />

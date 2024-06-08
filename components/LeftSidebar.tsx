@@ -8,19 +8,19 @@ import { SignedIn, SignedOut, useClerk } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { sidebarLinks } from "@/constants"; // .map
-// import { useAudio } from '@/providers/AudioProvider';
+import { useAudio } from '@/providers/AudioProvider';
 
 //!
 const LeftSidebar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const { signOut } = useClerk();
-  // const { audio } = useAudio();
+  const { audio } = useAudio();
 
   return (
-    <section className=/* {cn( */"left_sidebar h-[calc(100vh-5px)]"/* , {
-      'h-[calc(100vh-140px)]': audio?.audioUrl
-    })} */>
+    <section className= {cn("left_sidebar h-[calc(100vh-5px)]", {
+      'h-[calc(100vh-100px)]': audio?.audioUrl
+    })}>
       <nav className="flex flex-col gap-6">
         <Link href="/" className="flex cursor-pointer items-center gap-1 pb-10 max-lg:justify-center">
           <Image src="/icons/logo.svg" alt="logo" width={23} height={27} />
