@@ -8,6 +8,7 @@ import LoaderSpinner from '@/components/LoaderSpinner'
 import PodcastCard from '@/components/PodcastCard'
 import Searchbar from '@/components/Searchbar'
 
+//!
 const Discover = ({ searchParams: { search} }: { searchParams : { search: string }}) => {
   const podcastsData = useQuery(api.podcasts.getPodcastBySearch, { search: search || '' })
 
