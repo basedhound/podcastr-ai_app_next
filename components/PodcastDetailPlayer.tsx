@@ -27,7 +27,8 @@ const PodcastDetailPlayer = ({
   authorId,
 }: PodcastDetailPlayerProps) => {
   const router = useRouter();
-  // const { setAudio } = useAudio();
+  // Audio context
+  const { setAudio } = useAudio();
   const deletePodcast = useMutation(api.podcasts.deletePodcast);
   const [isDeleting, setIsDeleting] = useState(false);
   // Success
