@@ -54,6 +54,7 @@ export const useDotButton = (
   }
 }
 
+// TypeScript
 type DotButtonProps = {
   selected: boolean;
   onClick: () => void;
