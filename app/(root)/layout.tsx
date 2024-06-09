@@ -30,7 +30,6 @@ export default function RootLayout({
             </div>
             <div className="flex flex-col md:pb-14">
               <Toaster />
-
               {children}
             </div>
           </div>
