@@ -41,8 +41,7 @@ const ProfilePage = ({
         {podcastsData && podcastsData.podcasts.length > 0 ? (
           <div className="podcast_grid">
             {podcastsData?.podcasts
-              ?.slice(0, 4)
-              .map((podcast) => (
+              ?.map((podcast) => (
                 <PodcastCard
                   key={podcast._id}
                   imgUrl={podcast.imageUrl!}

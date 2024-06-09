@@ -73,7 +73,7 @@ const useGeneratePodcast = ({
       console.log("Error generating podcast", error);
       toast({
         title: "Error creating a podcast",
-        variant: "destructive",
+        variant: "destructive",        
       });
       setIsGenerating(false);
     }
@@ -103,7 +103,7 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
       </div>
       <div className="mt-5 w-full max-w-[200px]">
         <Button
-          type="submit"
+          type="button"
           className="text-16 bg-orange-1 py-4 font-bold text-white-1" onClick={generatePodcast}
         >
           {isGenerating ? (
