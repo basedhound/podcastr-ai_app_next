@@ -1,39 +1,44 @@
 <div align="center">
-  <br />
-    <a href="https://youtu.be/zfAb95tJvZQ" target="_blank">
-      <img src="https://github.com/adrianhajdin/jsm_podcastr/assets/151519281/f61a58c2-f144-41f7-8bc9-5ad14752ceb3" alt="Project Banner">
+    <a href="https://podcastr-fv.vercel.app" target="_blank">
+      <img src="public/preview.webp" alt="Project Banner">
     </a>
-  <br />
-
   <h3 align="center">AI Podcast Platform</h3>
-
 </div>
 
-## 📋 <a name="table">Table of Contents</a>
+##  <br /> 📋 <a name="table">Table of Contents</a>
 
 - ✨ [Introduction](#introduction)
 - ⚙️ [Tech Stack](#tech-stack)
 - 📝 [Features](#features)
 - 🚀 [Quick Start](#quick-start)
 
+##  <br /> <a name="introduction">✨ Introduction</a>
 
-## <a name="introduction">✨ Introduction</a>
+**[EN]** A cutting-edge AI SaaS platform that empowers users to create, discover, and enjoy podcasts with advanced features such as text-to-audio conversion using multi-voice AI powered by OpenAI API, podcast thumbnail image generation, and seamless playback. The platform includes secure authentication using Clerk, ensuring a safe and personalized user experience.
 
-**[EN]** A cutting-edge AI SaaS platform that enables users to create, discover, and enjoy podcasts with advanced features like text-to-audio conversion with multi-voice AI, podcast thumbnail Image generation and seamless playback. 
+**[FR]** Une plateforme SaaS d'IA de pointe qui permet aux utilisateurs de créer, découvrir et apprécier des podcasts avec des fonctionnalités avancées telles que la conversion texte-en-audio utilisant une IA multi-voix alimentée par l'API OpenAI, la génération d'images miniatures de podcasts et une lecture fluide. La plateforme inclut une authentification sécurisée utilisant Clerk, garantissant une expérience utilisateur sûre et personnalisée.
 
-**[FR]** Une plateforme SaaS d'IA de pointe qui permet aux utilisateurs de créer, découvrir et apprécier des podcasts avec des fonctionnalités avancées telles que la conversion de texte en audio avec une IA multi-voix, la génération d'images de miniature de podcast et une lecture en continu sans accroc.
+##  <br /> <a name="tech-stack">⚙️ Tech Stack</a>
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+- **React** is a popular JavaScript library for building user interfaces, particularly single-page applications, by creating reusable UI components and managing the state of the application efficiently.
 
-- Next.js
-- TypeScript
-- Convex
-- OpenAI
-- Clerk
-- ShadCN
-- Tailwind CSS
+- **Next.js** is a powerful React framework for building server-rendered applications and static websites with ease. It offers features like automatic code splitting, server-side rendering, and static site generation.
 
-## <a name="features">📝 Features</a>
+- **TypeScript** is a statically typed superset of JavaScript that enhances code quality and maintainability by providing optional static typing, early error detection, and robust tooling.
+
+- **Convex** is a modern backend-as-a-service (BaaS) that simplifies data management, real-time synchronization, and serverless functions, allowing developers to focus on building features without worrying about infrastructure.
+
+- **OpenAI** is a leading artificial intelligence research and deployment company known for its advanced AI models, including GPT-4, which provides state-of-the-art natural language processing capabilities.
+
+- **Clerk** is an authentication and user management platform that simplifies adding secure and scalable authentication to web applications, providing features like multi-factor authentication, social logins, and user profiles.
+
+- **ShadCN** is a component library that provides reusable, customizable, and accessible UI components, designed to work seamlessly with modern frontend frameworks like React.
+
+- **Tailwind** is a utility-first CSS framework that allows developers to rapidly build custom designs without writing custom CSS, promoting consistency and productivity through pre-defined classes.
+
+
+
+## <br/> <a name="features">📝 Features</a>
 
 👉 **Robust Authentication**: Secure and reliable user login and registration system.
 
@@ -55,19 +60,10 @@
 
 👉 **Responsive Design**: Fully functional and visually appealing across all devices and screen sizes.
 
-and many more, including code architecture and reusability 
 
-## <a name="quick-start">🚀 Quick Start</a>
+## <br /> <a name="quick-start">🚀 Quick Start</a>
 
 Follow these steps to set up the project locally on your machine.
-
-**Dashboards**
-
-- https://cloud.mongodb.com
-- https://dashboard.clerk.com
-- https://uploadthing.com/dashboard
-- https://dashboard.stripe.com
-- https://platform.openai.com
 
 <br/>**Prerequisites**
 
@@ -80,19 +76,20 @@ Make sure you have the following installed on your machine:
 <br/>**Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/jsm_podcastr.git
-cd jsm_podcastr
+git clone {git remote URL}
 ```
 
 <br/>**Installation**
 
-Install the project dependencies using npm:
+Let's install the project dependencies, from your terminal, run:
 
 ```bash
 npm install
+# or
+yarn install
 ```
 
-**Set Up Environment Variables**
+<br/>**Set Up Environment Variables**
 
 Create a new file named `.env` in the root of your project and add the following content:
 
@@ -108,18 +105,24 @@ CLERK_WEBHOOK_SECRET=
 NEXT_PUBLIC_CLERK_SIGN_IN_URL='/sign-in'
 NEXT_PUBLIC_CLERK_SIGN_UP_URL='/sign-up'
 
-# OpenAI
+# OpenAI (Use it in Convex dashboard -> https://dashboard.convex.dev)
 OPENAI_API_KEY=
 ```
 
-Replace the placeholder values with your actual Convex & Clerk credentials. You can obtain these credentials by signing up on the [Convex](https://www.convex.dev/) and [Clerk](https://clerk.com/) websites.
+Replace the placeholder values with your actual credentials:
+
+- [Clerk](https://dashboard.clerk.com)
+- [Convex](https://dashboard.convex.dev)
+- [OpenAI](https://platform.openai.com/)
 
 <br/>**Running the Project**
 
+Installation will take a minute or two, but once that's done, you should be able to run the following command:
+
 ```bash
 npm run dev
-npx convex dev
+# or
+yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
-
+Open [`http://localhost:3000`](http://localhost:3000) in your browser to view the project.
